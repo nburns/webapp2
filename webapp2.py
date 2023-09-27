@@ -22,8 +22,13 @@ Taking Google App Engine's webapp to the next level!
 :copyright: 2011 webapp2 AUTHORS.
 :license: Apache Software License, see LICENSE for details.
 """
+import warnings
+with warnings.catch_warnings():
+    warnings.filterwarnings("ignore", category=DeprecationWarning)
+    import cgi
+    import webob
+    from webob import exc
 
-import cgi
 from collections import OrderedDict
 import inspect
 import logging
@@ -42,8 +47,6 @@ from six.moves.urllib.parse import urlencode
 from six.moves.urllib.parse import urljoin
 from six.moves.urllib.parse import urlunsplit
 
-import webob
-from webob import exc
 
 
 _webapp = _webapp_util = _local = None
